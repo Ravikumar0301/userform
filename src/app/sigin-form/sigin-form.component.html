@@ -1,14 +1,27 @@
 
-<form [formGroup]="studentform" (ngSubmit)="onSubmit()">
-     
-    <label>First Name: </label>
-    <input type="text" formControlName="firstName" class="form-control">        
-   <div *ngIf="firstName.invalid && firstName.touched" class="alert alert-danger">
-        <div *ngIf="firstName.errors.required">
-                This field is Required
+<form [formGroup]="signinform" (ngSubmit)="onSubmit()">
+     <div>
+        <label>User Name : </label>
+        <input type="text" formControlName="username">  
+        <div *ngIf = "f.username.invalid && f.username.touched">
+           <div *ngIf ="f.username.errors.required">
+               Please Enter the User Name.
+           </div>
         </div>
+     </div>
+     <div>
+        <label>Password : </label>
+        <input type="text" formControlName="password">  
+     </div>   
+     <div *ngIf="f.password.invalid && f.password.touched">
+         <div *ngIf ="f.password.errors.required">
+             Please enter the password
+         </div>
+      </div>
+    <div>
+        <button type="submit">Sign In</button>
+        <a routerLink ="/signup">Sign Up</a>
     </div>
-    <button type="submit">Submit</button>
 </form>
 
 

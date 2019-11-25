@@ -8,15 +8,21 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 
 export class SiginFormComponent implements OnInit {
-  studentform: FormGroup;
+
+  signinform: FormGroup;
+
   constructor(private fb: FormBuilder) { }
   ngOnInit() {
-    this.studentform = this.fb.group({
-      firstName: ['', Validators.required]
+    this.signinform = this.fb.group({
+      username: ['', Validators.required],
+      password: ['',Validators.required]
     });
   }
-  get firstName() { return this.studentform.get('firstName'); }
-onSubmit(){
-    console.log(this.studentform.value);
+get f(){
+  return this.signinform.controls;
 }
+onSubmit(){
+    console.log(this.signinform.value);
+}
+
 }
