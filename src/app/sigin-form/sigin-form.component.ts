@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sigin-form',
@@ -8,13 +8,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 
 export class SiginFormComponent implements OnInit {
-  studentform = new FormGroup ({
-      firstname: new FormControl('Enter first name here'),
-      lastname: new FormControl('Enter last name here'),
-  })
-  constructor() { }
-
+  studentform: FormGroup;
+  constructor(private fb: FormBuilder) { }
   ngOnInit() {
+    this.studentform = this.fb.group({
+      firstName: ['', Validators.required]
+    });
   }
-
+  get firstName() { return this.studentform.get('firstName'); }
+onSubmit(){
+    console.log(this.studentform.value);
+}
 }

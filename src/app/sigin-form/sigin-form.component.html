@@ -1,17 +1,14 @@
 
-<form [formGroup] = "studentform" >
-    <label>
-        First Name :
-        <input type="text" formControlName="firstname">        
-    </label>
-    <label>
-        Last Name :
-        <input type="text" formControlName="lastname">        
-    </label>
-    <div>
-        <button type="submit">Submit</button>
+<form [formGroup]="studentform" (ngSubmit)="onSubmit()">
+     
+    <label>First Name: </label>
+    <input type="text" formControlName="firstName" class="form-control">        
+   <div *ngIf="firstName.invalid && firstName.touched" class="alert alert-danger">
+        <div *ngIf="firstName.errors.required">
+                This field is Required
+        </div>
     </div>
-    
+    <button type="submit">Submit</button>
 </form>
 
 
