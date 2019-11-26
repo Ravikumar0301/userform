@@ -1,32 +1,50 @@
 <form [formGroup]="signupform" (ngSubmit)="onsave()">
     <div>
         <label>Firstname :</label>
-        <input type="text" name="firstname">
+        <input type="text" formControlName="firstname">
     </div>
-    <div *ngIf="fr.firstname.invalid && fr.firstname.touched">
+    <div *ngIf="saveform && fr.firstname.invalid && fr.firstname.touched">
         <div *ngIf ="fr.firstname.errors.required">
             Please enter the firstname
         </div>
     </div>
     <div>
-            <label>lastname :</label>
-            <input type="text" name="lastname">
+        <label>lastname :</label>
+        <input type="text" formControlName="lastname">
+    </div>
+    <div *ngIf="fr.lastname.invalid && fr.lastname.touched">
+        <div *ngIf ="fr.lastname.errors.required">
+            Please enter the lastname
         </div>
-        <div *ngIf="fr.lastname.invalid && fr.lastname.touched">
-                <div *ngIf ="fr.lastname.errors.required">
-                    Please enter the lastname
-                </div>
-       </div>
-
-       <div>
-            <label>username :</label>
-            <input type="text" name="newusername">
+    </div>
+    <div>
+        <label>username :</label>
+        <input type="text" formControlName="newusername">
+    </div>
+    <div *ngIf="fr.newusername.invalid && fr.newusername.touched">
+        <div *ngIf ="fr.newusername.errors.required">
+            Please enter the username
         </div>
-        <div *ngIf="fr.newusername.invalid && fr.newusername.touched">
-                <div *ngIf ="fr.newusername.errors.required">
-                    Please enter the username
-                </div>
+    </div>
+    <div>
+        <label>New Password :</label>
+        <input type="text" formControlName="newpassword">
+    </div>
+    <div *ngIf="fr.newpassword.invalid && fr.newpassword.touched">
+        <div *ngIf ="fr.newpassword.errors.required">
+            Please enter the New Password.
+    </div>
+    </div>
+    <div>
+        <label>Confirm Password :</label>
+        <input type="text" formControlName="confirmpassword">
+    </div>
+    <div *ngIf="saveform && fr.confirmpassword.invalid && fr.confirmpassword.touched">
+        <div *ngIf ="fr.confirmpassword.errors.required">
+            Please enter the Confirm Password
         </div>
+        <div *ngIf ="fr.confirmpassword.errors.mustmatch">Password Must Match</div>
+    </div>
     <div>
         <button type="submit">Submit</button>
     </div>

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SiginFormComponent } from './sigin-form/sigin-form.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SignupService } from './signup.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

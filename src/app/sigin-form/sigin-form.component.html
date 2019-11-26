@@ -14,9 +14,7 @@
         <input type="text" formControlName="password">  
      </div>   
      <div *ngIf="f.password.invalid && f.password.touched">
-         <div *ngIf ="f.password.errors.required">
-             Please enter the password
-         </div>
+         <div *ngIf ="f.password.errors.required">Please enter the password</div>
       </div>
     <div>
         <button type="submit">Sign In</button>
