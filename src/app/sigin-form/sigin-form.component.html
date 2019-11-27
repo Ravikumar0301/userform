@@ -15,6 +15,7 @@
      </div>   
      <div *ngIf="f.password.invalid && f.password.touched">
          <div *ngIf ="f.password.errors.required">Please enter the password</div>
+         <div *ngIf = '!loading && !login' >User name and password not match.</div>
       </div>
     <div>
         <button type="submit">Sign In</button>
